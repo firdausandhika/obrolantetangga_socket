@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Screen Double Tap</title>
+
+  </head>
+  <body>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <table width="100%" align="center">
+      <tr>
+        <td align="center">
+          <button id="name" style="font-size: 200px; background: #f1f1f1;"> SCAN QR</button>
+        </td>
+      </tr>
+    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      $(function () {
+
+        $("#name").click(function(){
+      $.ajax({url: window.location.href.replace("button","tes"), success: function(result){
+        // $("#div1").html(result);
+      }});
+    });
+
+
+
+      });
+    </script>
+  </body>
+</html>

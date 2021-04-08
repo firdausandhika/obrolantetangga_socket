@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Screen Double Tap</title>
+
+  </head>
+  <body>
+    <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
+    <table width="100%" align="center">
+      <tr>
+        <td align="center">
+          <span id="name" style="font-size: 150px; background: inherit;"></span>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <span id="jenis" style="font-size: 150px; background: inherit;"></span>
+        </td>
+      </tr>
+    </table>
+    <span id="waktu" style="display:none" >5</span>
+    <span id="status_tap" style="display:none">0</span>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.2.0/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      $(function () {
+
+        // run something
+        // var statusTap = 0;
+
+        var socket = io.connect(window.location.href.replace("tampilan",""),{
+path:'/socket.io'});
+        socket.on('tap', function(msg){
+console.log("jalan")
+
+          if (parseInt($('#status_tap').text()) == 0) {
+            $('#status_tap').text(1);
+            clearInterval(interval);
+            $('#waktu').text(5);
+            $('#name').text("WAITING EMPLOYEE ...");
+            $('#jenis').text(" ");
+
+            var interval = setInterval(function() {
+              $('#waktu').text(parseInt($('#waktu').text())-1);
+                // Display 'counter' wherever you want to display it.
+                if (parseInt($('#waktu').text()) == 0) {
+
+                  $('#name').text("");
+                  $('#jenis').text("");
+                  $('#waktu').text(5);
+                    // Display a login box
+                    clearInterval(interval);
+                    // location.reload();
+                    $('#status_tap').text(0);
+                }
+            }, 1000);
+          }
+
+        });
+
+
+
+
+
+      });
+    </script>
+  </body>
+</html>
