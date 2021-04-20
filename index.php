@@ -10,7 +10,7 @@
                alert("WebSocket is supported by your Browser!");
 
                // Let us open a web socket
-               var ws = new WebSocket("ws://localhost:3000");
+               var ws = new WebSocket("ws://localhost:5000");
 
                ws.onopen = function() {
 
