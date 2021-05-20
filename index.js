@@ -18,6 +18,7 @@ http.listen(port, function(){
   console.log('listening on *:' + port);
 });
 var io = require('socket.io')(http,{
+  allowEIO3: true // false by default
   //serveClient:true,
   //#path: '/socket.io',
 });
@@ -92,11 +93,5 @@ request.post({
       //var i = allClients.indexOf(socket);
       //allClients.splice(i, 1);
    });
-  // 
+  //
 });
-
-
-
-
-
-
